@@ -10,31 +10,23 @@ void Init_dtsu666(){
 
 
 float Read_Voltage_A(){
-    Data_Convert Voltage;
-    uint8_t result = node1.readHoldingRegisters(UA_H, 2);
-    if (result == node1.ku8MBSuccess) {
-        Voltage.u32 = ((uint32_t)node1.getResponseBuffer(0) << 16)| node1.getResponseBuffer(1);
-        return Voltage.f;
-    }
-    return READ_ERROR;
+    return ReadFloat_Value(UA_H);
 }
 
 float Read_Voltage_B(){
-    Data_Convert Voltage;
-    uint8_t result = node1.readHoldingRegisters(UB_H, 2);
-    if (result == node1.ku8MBSuccess) {
-        Voltage.u32 = ((uint32_t)node1.getResponseBuffer(0) << 16)| node1.getResponseBuffer(1);
-        return Voltage.f;
-    }
-    return READ_ERROR;
+    return ReadFloat_Value(UB_H);
 }
 
 float Read_Voltage_C(){
-    Data_Convert Voltage;
+    return ReadFloat_Value(UC_H);
+}
+
+float ReadFloat_Value(uint16_t Reg){
+    Data_Convert Float;
     uint8_t result = node1.readHoldingRegisters(UC_H, 2);
     if (result == node1.ku8MBSuccess) {
-        Voltage.u32 = ((uint32_t)node1.getResponseBuffer(0) << 16)| node1.getResponseBuffer(1);
-        return Voltage.f;
+        Float.u32 = ((uint32_t)node1.getResponseBuffer(0) << 16)| node1.getResponseBuffer(1);
+        return Float.f;
     }
     return READ_ERROR;
 }
