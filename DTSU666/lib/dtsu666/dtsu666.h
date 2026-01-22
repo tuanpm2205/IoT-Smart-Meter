@@ -2,6 +2,28 @@
 #define __DTSU666
 
 #include <stdint.h>
+#include <ModbusMaster.h>
+
+extern ModbusMaster node1;
+
+#define dtsu_slaveid 0x01
+#define default_baudrate 9600
+
+#define TX_Pin 16
+#define RX_Pin 17
+
+#define READ_ERROR -1
+
+void Init_dtsu666();
+
+float Read_Voltage_A();
+float Read_Voltage_B();
+float Read_Voltage_C();
+
+typedef union{
+    uint32_t u32;
+    float f;
+} Data_Convert;
 
 enum Register_Map : uint16_t {
     // ----------------------------------------------------------------
