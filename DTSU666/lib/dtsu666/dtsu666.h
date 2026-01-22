@@ -6,8 +6,8 @@
 
 extern ModbusMaster node1;
 
-#define dtsu_slaveid 0x01
-#define default_baudrate 9600
+#define dtsu_slaveid 0x01 // Datasheet
+#define default_baudrate 9600 // Default
 
 #define TX_Pin 16
 #define RX_Pin 17
@@ -15,6 +15,8 @@ extern ModbusMaster node1;
 #define READ_ERROR -1
 
 void Init_dtsu666();
+
+float ReadFloat_Value(uint16_t);
 
 float Read_Voltage_A();
 float Read_Voltage_B();
