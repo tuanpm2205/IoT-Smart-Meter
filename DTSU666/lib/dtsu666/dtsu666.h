@@ -7,10 +7,10 @@
 extern ModbusMaster node1;
 
 #define dtsu_slaveid 0x01 // Datasheet
-#define default_baudrate 9600 // Default
+#define default_baudrate_dtsu666 9600 // Default
 
-#define TX_Pin 16
-#define RX_Pin 17
+#define TX_Pin_dtsu666 16
+#define RX_Pin_dtsu666 17
 
 #define READ_ERROR -1
 
