@@ -4,6 +4,16 @@
 #include <stdint.h>
 #include <ModbusMaster.h>
 
+#ifndef READ_ERROR
+#define READ_ERROR -1
+#endif
+
+#define pzem_slaveid 0x01 // Datasheet
+#define default_baudrate_pzem 9600 // Default
+
+#define TX_Pin_pzem 16
+#define RX_Pin_pzem 17
+
 // --------------------------------------------------------------------------
 // 1. MEASUREMENT RESULT REGISTERS (Thanh ghi kết quả đo)
 // Use Function Code: 0x04 (Read Input Register)
@@ -60,7 +70,7 @@ enum PZEM_Holding_Registers : uint16_t {
 };
 
 
-uint16_t Read_Reg(uint16_t reg);
-
+uint16_t Read_Reg(uint16_t);
+void Init_Pzem(void);
 
 #endif // PZEM016_REGISTERS_H
